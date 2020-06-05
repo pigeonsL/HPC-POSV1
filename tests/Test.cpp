@@ -1,9 +1,18 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
+
 #include "Hello.h"
 
-TEST(lib, Case1)
+using ::testing::Eq;
+
+TEST(Pos, Case1)
 {
-    EXPECT_EQ(1, 1);
-    EXPECT_THAT(1, ::testing::Ge(0));
+    std::string receipt = BuildReceipt({"ITEM000001"});
+    const std::string expect = R"(Receipts:
+----------------
+ITEM000001, Apple, 460
+
+----------------
+TOTAL:     460)";
+    EXPECT_THAT(receipt, Eq(expect));
 }
