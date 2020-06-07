@@ -10,7 +10,7 @@ TEST(Pos, Case1)
     std::string receipt = BuildReceipt({"ITEM000001"});
     const std::string expect = R"(Receipts:
 ----------------
-ITEM000001, Apple, 460
+ITEM000001, Apple, x1, 460
 
 ----------------
 TOTAL:     460)";
