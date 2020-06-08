@@ -3,6 +3,13 @@
 #include <string>
 #include <vector>
 
-std::string BuildReceipt(const std::vector<std::string>& barcodes);
+struct Good {
+    std::string barcode;
+    std::string name;
+    size_t price;
+};
+
+//std::string BuildReceipt(const std::vector<std::string>& barcodes);
+std::vector<size_t> getGoodsInfo(std::vector<std::string>& barcodes);
 
 #endif
