@@ -10,6 +10,7 @@ struct Good {
 };
 
 //std::string BuildReceipt(const std::vector<std::string>& barcodes);
-std::vector<size_t> getGoodsInfo(std::vector<std::string>& barcodes);
+std::vector<size_t> getOrders(std::vector<std::string>& barcodes);
+size_t countOrdersPrice(std::vector<size_t>& orders);
 
 #endif
