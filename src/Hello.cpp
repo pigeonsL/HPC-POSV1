@@ -6,16 +6,23 @@ std::vector<Good> goods = {
     {"ITEM000005", "Banana", 300},
 };
 
-std::vector<size_t> getOrders(std::vector<std::string>& barcodes){
-    std::vector<size_t> orders;
-    for(int i=0;i<barcodes.size();++i){
-        for(int j=0;j<goods.size();++j){
-            if(barcodes[i] == goods[j].barcode){
-                orders.push_back(j);
+std::map<size_t, size_t> getItems(std::vector<std::string>& barcodes)
+{
+    std::map<size_t, size_t> items;//[goodsIndex,number]
+
+    std::vector<size_t> goodsIndex;
+    for (int i = 0; i < barcodes.size(); ++i) {
+        for (int j = 0; j < goods.size(); ++j) {
+            if (barcodes[i] == goods[j].barcode) {
+                if (items.count(j) == 0) {
+                    items.insert(std::make_pair(j, 1));
+                }else{
+                    items[j]++;
+                }
             }
         }
     }
-    return orders;
+    return items;
 }
 size_t countOrdersPrice(std::vector<size_t>& orders){
     size_t totalPrice=0;
