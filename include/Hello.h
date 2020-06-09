@@ -11,10 +11,6 @@ struct Good {
     std::string name;
     size_t price;
 };
-struct Order{
-    std::map<size_t, size_t> items;
-    size_t totalPrice;
-};
 
 std::map<size_t, size_t> getOrder(std::vector<std::string>& barcodes);
 size_t countOrdersPrice(std::map<size_t, size_t>& orders);

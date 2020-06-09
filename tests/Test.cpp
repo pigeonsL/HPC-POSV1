@@ -62,3 +62,18 @@ ITEM000003, Cup, x1, 100
 TOTAL:     1020)";
     EXPECT_THAT(receipt, Eq(expect));
 }
+TEST(printReceipt, should_print_receipt_with_orders_3)
+{
+    std::vector<std::string> barCodes({"ITEM000001", "ITEM000003", "ITEM000001", "ITEM000005"});
+    std::string receipt = printReceipt(barCodes);
+
+    const std::string expect = R"(Receipts:
+----------------
+ITEM000001, Apple, x2, 460
+ITEM000003, Cup, x1, 100
+ITEM000005, Banana, x1, 300
+
+----------------
+TOTAL:     1320)";
+    EXPECT_THAT(receipt, Eq(expect));
+}
