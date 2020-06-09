@@ -22,6 +22,14 @@ TEST(countOrdersPrice, should_return_total_price_with_orders)
 
     EXPECT_THAT(expect,Eq(860));
 }
+TEST(countOrdersPrice, should_return_total_price_with_orders_1)
+{
+    std::map<size_t, size_t> orders({{0,2},{1,1},{2,1}});
+
+    size_t expect = countOrdersPrice(orders);
+
+    EXPECT_THAT(expect,Eq(1320));
+}
 TEST(printReceipt, should_print_receipt_with_orders)
 {
     std::vector<std::string> barCodes({"ITEM000001"});
