@@ -14,6 +14,14 @@ TEST(getOrders, should_return_orders_if_input_barcodes)
     EXPECT_THAT(expect[0], Eq(2));
     EXPECT_THAT(expect[1], Eq(1));
 }
+TEST(getOrders, should_return_orders_if_input_barcodes_1)
+{
+    std::vector<std::string> barCodes({"ITEM000005"});
+
+    std::map<size_t, size_t> expect = getOrder(barCodes);
+
+    EXPECT_THAT(expect[2], Eq(1));
+}
 TEST(countOrdersPrice, should_return_total_price_with_orders)
 {
     std::map<size_t, size_t> orders({{0,1},{1,1},{2,1}});
